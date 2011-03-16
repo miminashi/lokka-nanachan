@@ -9,9 +9,42 @@
   %br
   %input{:type => 'text', :id => 'post_title', :name => 'post[title]', :value => @post.title}
 .field
+  %label{:for => 'post_thumbnail_image_url'}= t.post.thumbnail_image_url
+  %br 
+  %input{:type => 'text', :id => 'post_thumbnail_image_url', :name => 'post[thumbnail_image_url]', :value => @post.thumbnail_image_url}
+.field
   %label{:for => 'post_body'}= t.post.body
   %br
   %textarea{:id => 'post_body', :class => 'editor', :name => 'post[body]', :rows => 10, :cols => 50}= h @post.body
+.field
+  %label{:for => 'post_place'}= t.post.place
+  %br
+  %input{:type => 'text', :id => 'post_place', :name => 'post[place]', :value => @post.place}
+.field
+  %label{:for => 'post_image_urls'}= t.post.image_urls
+  %ol
+    %li
+      %input{:type => 'text', :id => 'post_image_url_00', :name => 'image_urls[0]', :value => @post.image_urls[0] ? @post.image_urls[0] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_01', :name => 'image_urls[1]', :value => @post.image_urls[1] ? @post.image_urls[1] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_02', :name => 'image_urls[2]', :value => @post.image_urls[2] ? @post.image_urls[2] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_03', :name => 'image_urls[3]', :value => @post.image_urls[3] ? @post.image_urls[3] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_04', :name => 'image_urls[4]', :value => @post.image_urls[4] ? @post.image_urls[4] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_05', :name => 'image_urls[5]', :value => @post.image_urls[5] ? @post.image_urls[5] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_06', :name => 'image_urls[6]', :value => @post.image_urls[6] ? @post.image_urls[6] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_07', :name => 'image_urls[7]', :value => @post.image_urls[7] ? @post.image_urls[7] : ''}
+    %li
+      %input{:type => 'text', :id => 'post_image_url_08', :name => 'image_urls[8]', :value => @post.image_urls[8] ? @post.image_urls[8] : ''}
+.field
+  %label{:for => 'post_movie_url'}= t.post.movie_url
+  %br
+  %input{:type => 'text', :id => 'post_movie_url', :name => 'post[movie_url]', :value => @post.movie_url}
 .field
   %label{:for => 'post_slug'}= t.post.slug
   %br

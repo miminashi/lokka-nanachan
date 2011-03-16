@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta name="description" content="秋葉原から発信する学生によるリレーショナルアートプロジェクトポータルサイト。">
+    <meta name="keywords" content="アートプロジェクト,ななちゃん,ナナチャン,nanachan,7ch,七色チャンネル,nanairo channel,七色ちゃんねる,東京芸術大学,先端芸術,メディアセンター,秋葉原,アーツちよだ3331,コマンドA,中村政人" />
+    <title>学生メディアセンターなないろチャンネル nanachan.tv</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://nanachan.tv/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="http://nanachan.tv/css/contents.css" />
+    <script type="text/javascript" src="http://nanachan.tv/js/flash.js"></script>
+    <script type="text/javascript" src="http://nanachan.tv/js/pageup.js"></script>
+    <link href="/index.atom" rel="alternate" title="<%= @title %>" type="application/atom+xml" />
+    <link rel="stylesheet" href="<%= @theme.path %>/main.css" type="text/css" />
+	<style type="text/css">
+	<!--
+	#wrapaside{background-color:black;}
+	#aside{padding:15px; width:900px; margin:0 auto;}
+	#aside dl{float:left;}
+	#aside dt{font-size:14px; font-weight:normal; margin-bottom:4px; color:#cdcdcd;}
+	#aside dd{margin:5px 0;}
+	#aside #others{height:100%; border-width:0 0 0 1px; border-style:dotted; border-color:gray; padding-left:15px;"}
+	#aside input{background-color:gray;}
+	
+	#archives #backmovies img{width:210px; height:140px; margin-right:10px; overflow:hidden;}
+	 -->
+	 </style>
+  </head>
+  <body>
+    <div id="header"><!-- header -->
+      <a href="http://nanachan.tv/index.html" id="logo_nanachan" class="rmv-t">
+        <h4>学生メディアセンター</h4>
+        <h1>なないろチャンネル</h1>
+      </a>
+
+      <div class="clear"></div>
+      <div id="menu">
+        <ul class="menu">
+          <li class="menuAbout"><a href="http://nanachan.tv/about.html">ななチャンとは？</a></li>
+          <li class="menuPrograms"><a href="http://nanachan.tv/programs.html">番組・イベント表</a></li>
+          <li class="menuArchives"><a href="http://archives.nanachan.tv/" class="selected">アーカイヴ</a></li>
+          <li class="menuLinks"><a href="http://nanachan.tv/links.html">リンク</a></li>
+          <li class="menuAccess"><a href="http://nanachan.tv/access.html">交通アクセス</a></li>
+          <li class="menuContact"><a href="http://nanachan.tv/contact.html">連絡先</a></li>
+          <li class="menuSponsor"><a href="http://nanachan.tv/sponsor.html">スポンサー</a></li>
+        </ul>
+      </div>
+    </div><!-- header -->
+
+    <div id="inner" style="width:100%">
+      <div id="wrapall" style="width:900px">
+        <div id="pankuzu"><a href="http://nanachan.tv/index.html">トップ</a> > アーカイヴ</div>
+		
+        <div id="wrapcontents">
+          <!-- pankuzu <div id="bread_crumb"><%= bread_crumb %></div> -->
+          <table width="900">
+            <tr>
+              <td valign="top" id="tdpickup">
+                <div id="wrappickup">
+                  <h3 id="pickup" class="rmv-t">ピックアップ</h3>
+                  <div id="archives">
+                    <div id="backmovies">
+                      <li><a href="http://nanachan.tv/movies/bartimeline.html"><img src="http://farm2.static.flickr.com/1189/5139629918_fde0b269fc_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">BAR☆Time Line</span></a></li>
+                      <li><a href="http://nanachan.tv/movies/gallery.html"><img src="http://farm5.static.flickr.com/4062/5139021113_c139fec325_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">なないろチャンネル開局記念展<br />「劇的!!インストール」</span></a></li>
+                      <li><a href="http://nanachan.tv/movies/akiben.html"><img src="http://farm2.static.flickr.com/1226/5149283473_eb29ecd7ab_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">秋葉原弁当男子SP!!!</span></a></li>
+                      <li><a href="http://nanachan.tv/movies/untilgallery.html"><img src="http://farm5.static.flickr.com/4001/5139624046_408ebced2e_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">展覧会ができるまでチャンネル</span></a></li>
+                      <div class="clear"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td width="25"></td>
+              <td valign="top" width="80">
+                <h3 id="monthly" class="rmv-t">月別</h3>
+                <% months.each do |month| %>
+                  <li><a href="/<%= month.year %>/<%= month.month %>/"><%= month.year %>/<%= month.month %></a></li>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+
+          <h3 id="newest" class="rmv-t">新着記事</h3>
+          <div id="main">
+            <%= yield %>
+          </div>
+
+
+          <div class="clear"></div>
+        </div><!-- wrapcontents -->
+      </div><!-- wrapall --> 
+    </div><!-- inner -->
+
+    <div class="clear"></div>
+
+
+
+    <div id="footer">
+      <div id="copyright">Copyright &copy; Media Center of Students 7ch. All Rights Reserved.</div>
+      <div id="logo_links">
+        <a href="http://www.bh-project.jp/" class="rmv-t" id="logo_bunpro" target="_blank">東京文化発信プロジェクト</a>
+        <a href="http://www.commandn.net/" class="rmv-t" id="logo_commandn" target="_blank">合同会社コマンドN</a>
+      </div>
+      <div class="clear"></div>
+    </div><!-- footer -->
+	
+    <!-- aside -->
+    <div id="wrapaside">
+      <div id="aside">
+        <dl style="width:120px;">
+          <dt>月別</dt>
+          <dd>
+          <ul>
+            <% months.each do |month| %>
+              <li><a href="/<%= month.year %>/<%= month.month %>/"><%= month.year %>/<%= month.month %></a></li>
+            <% end %>
+          </ul>
+          </dd>
+        </dl>
+
+        <dl style="width:300px; padding-right:30px;">
+          <dt>新着記事</dt>
+          <dd>
+          <ul>
+            <% Post.recent(5).each do |post| %>
+              <li><a href="<%= post.link %>"><%= post.title %></a></li>
+            <% end %>
+          </ul>
+          </dd>
+        </dl>
+
+        <dl style="width:200px;">
+          <dt>ななチャンの活動</dt>
+          <dd><%= category_tree %></dd>
+          <br />
+          <dt>番組</dt>
+          <dd>
+          <ul>
+            <% Tag.all.each do |tag| %>
+              <li><a href="<%= tag.link %>"><%= tag.name %></a></li>
+            <% end %>
+          </ul>
+          </dd>
+        </dl>
+
+        <dl id="others">
+          <dt>検索</dt>
+          <dd>
+          <form action="/search/" method="get">
+            <input type="text" name="query" class="text_field" />
+            <button class="submit" onclick="submit()">検索</button>
+          </form>
+          </dd>
+          <br />
+          <dt>Others</dt>
+          <dd>
+          <ul>
+            <li><a href="/admin/">管理用</a></li>
+            <li><a href="/index.atom">フィード</a></li>
+          </ul>
+          </dd>
+        </dl>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!-- aside -->
+
+  </body>
+</html>

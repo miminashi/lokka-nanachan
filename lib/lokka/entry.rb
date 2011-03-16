@@ -6,7 +6,11 @@ class Entry
   property :category_id, Integer
   property :slug, Slug, :length => 255
   property :title, String, :length => 255
+  property :thumbnail_image_url, String, :length => 1024
   property :body, Text
+  property :place, String, :length => 255
+  property :_image_urls, Object
+  property :movie_url, String, :length => 1024
   property :type, Discriminator
   property :draft, Boolean, :default => false
   property :created_at, DateTime
@@ -79,6 +83,19 @@ class Entry
       html += %Q(<li class="tag"><a href="#{tag.link}">#{tag.name}</a></li>)
     end
     html + '</ul>'
+  end
+
+  def image_urls=(image_urls_array)
+    self._image_urls = Marshal.dump(image_urls_array)
+  end
+
+  def image_urls
+    #p self._image_urls
+    if self._image_urls
+      return Marshal.load(self._image_urls)
+    else
+      return []
+    end
   end
 end
 

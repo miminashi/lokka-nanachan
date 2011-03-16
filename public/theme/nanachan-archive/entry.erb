@@ -1,0 +1,22 @@
+<div class="section article" style="margin-bottom:20px;">
+  <div class="header">
+    <h2 class="center100"><%= @entry.title %></h2>
+    <ul class="info">
+      <li class="date" id="right100"><%= l @entry.created_at.to_time %></li>
+    </ul>
+  </div>
+  <div class="body">
+    <%= @entry.body %>
+  </div>
+  <div class="clear"></div>
+  
+  <div class="footer">
+	  
+	  <!-- 上へ戻る -->
+	  <script src="http://nanachan.tv/js/totop.js"></script>
+	  <!-- 編集 -->
+    <% if logged_in? %>
+    <div style="font-size:10px;"><a href="<%= @entry.edit_link %>"><%= t.edit %></a></div>
+    <% end %>
+  </div>
+</div>

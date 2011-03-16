@@ -104,6 +104,11 @@ module Lokka
 
     post '/admin/posts' do
       @post = Post.new(params['post'])
+      image_urls = []
+      params['image_urls'].each do |k, v|
+        image_urls[k.to_i] = v
+      end
+      @post.image_urls = image_urls
       @post.user = current_user
       if @post.save
         flash[:notice] = t.post_was_successfully_created
@@ -126,7 +131,14 @@ module Lokka
 
     put '/admin/posts/:id' do |id|
       @post = Post.get(id)
-      if @post.update(params['post'])
+      @post.attributes = params['post']
+      image_urls = []
+      params['image_urls'].each do |k, v|
+        image_urls[k.to_i] = v
+      end
+      @post.image_urls = image_urls
+      #if @post.update(params['post'])
+      if @post.save
         flash[:notice] = t.post_was_successfully_updated
         if @post.draft
           redirect '/admin/posts?draft=true'
@@ -467,6 +479,8 @@ module Lokka
 
     # index
     get '/' do
+      p t
+
       @theme_types << :index
       @theme_types << :entries
 

@@ -117,7 +117,11 @@ post:
   id: ID
   slug: スラッグ
   title: タイトル
+  thumbnail_image_url: サムネイル画像URL
   body: 本文
+  place: 場所
+  image_urls: 画像URL
+  movie_url: 動画URL
   user: 作成者
   category: カテゴリー
   tags: タグ
