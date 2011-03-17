@@ -121,10 +121,13 @@ post:
   body: 本文
   place: 場所
   image_urls: 画像URL
-  movie_type: 動画貼付け方法
-  movie_type_url: 動画URL
-  movie_type_snippet: 動画貼り付けタグ
   movie_url: 動画URL
+  movie_url_webm: WebM
+  movie_url_ogg: Ogg Theora
+  movie_url_mp4: MP4
+  movie_type: 動画貼付け方法
+  movie_type_snippet: 動画貼り付けタグ
+  movie_type_url: 動画URL
   movie_snippet: 動画貼付けタグ
   user: 作成者
   category: カテゴリー

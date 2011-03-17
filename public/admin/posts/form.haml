@@ -49,8 +49,16 @@
     %option{:value => 'snippet', :selected => (@post.movie_type == 'snippet')}= t.post.movie_type_snippet
 .field
   %label{:for => 'post_movie_url'}= t.post.movie_url
-  %br
-  %input{:type => 'text', :id => 'post_movie_url', :name => 'post[movie_url]', :value => @post.movie_url}
+  %ul
+    %li
+      %label{:for => 'post_movie_url_webm'}= t.post.movie_url_webm
+      %input{:type => 'text', :id => 'post_movie_url_webm', :name => 'post[movie_url_webm]', :value => @post.movie_url_webm}
+    %li
+      %label{:for => 'post_movie_url_ogg'}= t.post.movie_url_ogg
+      %input{:type => 'text', :id => 'post_movie_url_ogg', :name => 'post[movie_url_ogg]', :value => @post.movie_url_ogg}
+    %li
+      %label{:for => 'post_movie_url_mp4'}= t.post.movie_url_mp4
+      %input{:type => 'text', :id => 'post_movie_url_mp4', :name => 'post[movie_url_mp4]', :value => @post.movie_url_mp4}
 .field
   %label{:for => 'post_movie_snippet'}= t.post.movie_snippet
   %br

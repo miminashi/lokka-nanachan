@@ -11,7 +11,9 @@ class Entry
   property :place, String, :length => 255
   property :_image_urls, Object
   property :movie_type, String, :length => 10
-  property :movie_url, String, :length => 1024
+  property :movie_url_webm, String, :length => 1024
+  property :movie_url_ogg, String, :length => 1024
+  property :movie_url_mp4, String, :length => 1024
   property :movie_snippet, Text
   property :type, Discriminator
   property :draft, Boolean, :default => false
