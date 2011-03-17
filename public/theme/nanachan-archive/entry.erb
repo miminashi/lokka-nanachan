@@ -6,7 +6,42 @@
     </ul>
   </div>
   <div class="body">
-    <%= @entry.body %>
+
+    <div id="wrapcontents">
+      <div id="wrapleft-photo">
+        <ul>
+          <% @entry.image_urls.each do |i| %>
+            <% if i != '' %>
+              <li><a href="http://www.flickr.com/photos/58355766@N05/5361001156/lightbox/" target="_blank"><img src="<%= i %>" /></a></li>
+            <% end %>
+          <% end %>
+        </ul>
+
+        <div class="clear"><br />
+        </div>
+
+        <% if @entry.movie_type == 'url' %>
+          <video src="<%= @entry.movie_url %>" style="width:420px; height:296px"></video>
+        <% elsif @entry.movie_type == 'snippet' %>
+          <%= @entry.movie_snippet %>
+        <% end %>
+      </div><!-- wrapright-photo -->
+
+      <div id="wrapright-program">
+        <div id="description">
+          <span style="font-size:13px">
+            <%= @entry.body %>
+          </span>
+        </div><!-- description -->
+        <br>  
+        <div id="date"> 
+          <li><b>場所</b><br><%= @entry.place %></li>
+        </div><!-- date -->  
+      </div>
+      <div class="clear"></div>
+    </div>
+
+
   </div>
   <div class="clear"></div>
   

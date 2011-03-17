@@ -10,7 +10,9 @@ class Entry
   property :body, Text
   property :place, String, :length => 255
   property :_image_urls, Object
+  property :movie_type, String, :length => 10
   property :movie_url, String, :length => 1024
+  property :movie_snippet, Text
   property :type, Discriminator
   property :draft, Boolean, :default => false
   property :created_at, DateTime

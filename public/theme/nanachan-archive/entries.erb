@@ -1,38 +1,29 @@
 <% unless index? %>
-<h2><%= @title %></h2>
+  <h2><%= @title %></h2>
 <% end %>
 <div class="section articles">
-<% @posts.each do |post| %>
-  <div class="section article" style="margin-bottom:40px;">
-    <div class="header">
-      <h2 class="center100"><a href="<%= post.link %>"><%= post.title %></a></h2>
-      <ul class="info">
-	    <% unless post.category.nil? %>
-        <div class="right100"><a href="<%= post.category.link %>" style="background:url(http://nanachan.tv/img/category.jpg) no-repeat center center; padding-top:7px; padding-right:8px; display:block; float:left; width:42px; height:26px; color:white; font-size:12px; letter-spacing:0.1em;"><%= post.category.title %></a><div style="float:right; width:200px;"><%= post.created_at %></div><div class="clear"></div></div>
-        <% end %>
 
-      </ul>
-    </div>
-    <div class="body">
-      <%= post.body %>
-    </div>
-    <div class="footer">
-		  <!-- 上へ戻る -->
-	  <script src="http://nanachan.tv/js/totop.js"></script>
-      <% if logged_in? %>
-	  <!-- 編集 -->
-      <div style="font-size:10px;"><a href="<%= post.edit_link %>"><%= t.edit %></a></div>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+  <ol>
+    <% @posts.each do |post| %>
+      <li class="entries_link" style="width:180px;height:175px; float:left; margin-left:10px">
+      <span>
+        <a href="<%= post.link %>">
+          <img style="height:120px; width:180px;" src="<%= post.thumbnail_image_url %>" />
+          <br />
+          <span style="font-size:11px"><%= post.title %></span>
+        </a>
+      </span>
+      </li>
+    <% end %>
+  </ol>
+
   <div class="pager">
     <ul>
       <% if @posts.pager.previous_page %>
-      <li class="previous"><a href="?page=<%= @posts.pager.previous_page %>">Newer</a></li>
+        <li class="previous"><a href="?page=<%= @posts.pager.previous_page %>">Newer</a></li>
       <% end %>
       <% if @posts.pager.next_page %>
-      <li class="next"><a href="?page=<%= @posts.pager.next_page %>">Older</a></li>
+        <li class="next"><a href="?page=<%= @posts.pager.next_page %>">Older</a></li>
       <% end %>
     </ul>
   </div>

@@ -40,11 +40,21 @@
     %li
       %input{:type => 'text', :id => 'post_image_url_07', :name => 'image_urls[7]', :value => @post.image_urls[7] ? @post.image_urls[7] : ''}
     %li
-      %input{:type => 'text', :id => 'post_image_url_08', :name => 'image_urls[8]', :value => @post.image_urls[8] ? @post.image_urls[8] : ''}
+      %input{:type => 'text', :id => 'post_image_url_08', :name => 'image_urls[8]', :value => @post.image_urls[8] ? @post.image_urls[8] : ''}        
+.field
+  %label{:for => 'post_movie_type'}= t.post.movie_type
+  %br
+  %select{:id => 'post_movie_type', :name => 'post[movie_type]'}
+    %option{:value => 'url', :selected => (@post.movie_type == 'url')}= t.post.movie_type_url
+    %option{:value => 'snippet', :selected => (@post.movie_type == 'snippet')}= t.post.movie_type_snippet
 .field
   %label{:for => 'post_movie_url'}= t.post.movie_url
   %br
   %input{:type => 'text', :id => 'post_movie_url', :name => 'post[movie_url]', :value => @post.movie_url}
+.field
+  %label{:for => 'post_movie_snippet'}= t.post.movie_snippet
+  %br
+  %textarea{:type => 'text', :id => 'post_movie_snippet', :name => 'post[movie_snippet]'}= @post.movie_snippet
 .field
   %label{:for => 'post_slug'}= t.post.slug
   %br
