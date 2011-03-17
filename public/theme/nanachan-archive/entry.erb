@@ -21,7 +21,9 @@
         </div>
 
         <% if @entry.movie_type == 'url' %>
-          <video src="<%= @entry.movie_url %>" style="width:420px; height:296px"></video>
+          <video style="width:420px; height:296px; background-color:#000000" controls>
+          <source src="<%= @entry.movie_url %>" type="video/webm">
+          </video>
         <% elsif @entry.movie_type == 'snippet' %>
           <%= @entry.movie_snippet %>
         <% end %>
