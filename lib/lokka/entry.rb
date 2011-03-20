@@ -10,10 +10,11 @@ class Entry
   property :body, Text
   property :place, String, :length => 255
   property :_image_urls, Object
+  property :_image_links, Object
   property :movie_type, String, :length => 10
-  property :movie_url_webm, String, :length => 1024
-  property :movie_url_ogg, String, :length => 1024
-  property :movie_url_mp4, String, :length => 1024
+  property :_movie_urls_webm, Object
+  property :_movie_urls_ogg, Object
+  property :_movie_urls_mp4, Object
   property :movie_snippet, Text
   property :type, Discriminator
   property :draft, Boolean, :default => false
@@ -97,6 +98,57 @@ class Entry
     #p self._image_urls
     if self._image_urls
       return Marshal.load(self._image_urls)
+    else
+      return []
+    end
+  end
+
+  def image_links=(image_links_array)
+    self._image_links = Marshal.dump(image_links_array)
+  end
+
+  def image_links
+    if self._image_links
+      return Marshal.load(self._image_links)
+    else
+      return []
+    end
+  end
+
+  # webm
+  def movie_urls_webm=(arg)
+    self._movie_urls_webm = Marshal.dump(arg)
+  end
+
+  def movie_urls_webm
+    if self._movie_urls_webm
+      return Marshal.load(self._movie_urls_webm)
+    else
+      return []
+    end
+  end
+
+  # ogg
+  def movie_urls_ogg=(arg)
+    self._movie_urls_ogg = Marshal.dump(arg)
+  end
+
+  def movie_urls_ogg
+    if self._movie_urls_ogg
+      return Marshal.load(self._movie_urls_ogg)
+    else
+      return []
+    end
+  end
+
+  # mp4
+  def movie_urls_mp4=(arg)
+    self._movie_urls_mp4 = Marshal.dump(arg)
+  end
+
+  def movie_urls_mp4
+    if self._movie_urls_mp4
+      return Marshal.load(self._movie_urls_mp4)
     else
       return []
     end

@@ -115,20 +115,23 @@ page:
   updated_at: 更新日時
 post:
   id: ID
-  slug: スラッグ
+  slug: スラッグ（ユニークなURL。空白でも可）
   title: タイトル
   thumbnail_image_url: サムネイル画像URL
   body: 本文
   place: 場所
-  image_urls: 画像URL
+  image_urls: 画像
+  image_url: 画像URL
+  image_link: リンク先
   movie_url: 動画URL
   movie_url_webm: WebM
   movie_url_ogg: Ogg Theora
   movie_url_mp4: MP4
   movie_type: 動画貼付け方法
+  movie_type_description: ファイルとしてアップロードした動画クリップを使う場合は「動画URL」を、YouTubeやUStreamなどにアップロードした動画を使う場合は「動画貼り付けタグ」をそれぞれ選択する
   movie_type_snippet: 動画貼り付けタグ
   movie_type_url: 動画URL
-  movie_snippet: 動画貼付けタグ
+  movie_snippet: 動画貼り付けタグ
   user: 作成者
   category: カテゴリー
   tags: タグ

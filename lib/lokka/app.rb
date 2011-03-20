@@ -104,11 +104,44 @@ module Lokka
 
     post '/admin/posts' do
       @post = Post.new(params['post'])
+      # image_urls
       image_urls = []
       params['image_urls'].each do |k, v|
         image_urls[k.to_i] = v
       end
       @post.image_urls = image_urls
+
+      # image_links
+      image_links = []
+      params['image_links'].each do |k, v|
+        image_links[k.to_i] = v
+      end
+      @post.image_links = image_links
+
+
+      p params['movie_urls_webm']
+
+      # movie_urls_webm
+      buff = []
+      params['movie_urls_webm'].each do |k, v|
+        buff[k.to_i] = v
+      end
+      @post.movie_urls_webm = buff
+
+      # movie_urls_ogg
+      buff = []
+      params['movie_urls_ogg'].each do |k, v|
+        buff[k.to_i] = v
+      end
+      @post.movie_urls_ogg = buff
+
+      # movie_urls_mp4
+      buff = []
+      params['movie_urls_mp4'].each do |k, v|
+        buff[k.to_i] = v
+      end
+      @post.movie_urls_mp4 = buff
+
       @post.user = current_user
       if @post.save
         flash[:notice] = t.post_was_successfully_created
@@ -137,6 +170,34 @@ module Lokka
         image_urls[k.to_i] = v
       end
       @post.image_urls = image_urls
+
+      image_links = []
+      params['image_links'].each do |k, v|
+        image_links[k.to_i] = v
+      end
+      @post.image_links = image_links
+
+      # movie_urls_webm
+      buff = []
+      params['movie_urls_webm'].each do |k, v|
+        buff[k.to_i] = v
+      end
+      @post.movie_urls_webm = buff
+
+      # movie_urls_ogg
+      buff = []
+      params['movie_urls_ogg'].each do |k, v|
+        buff[k.to_i] = v
+      end
+      @post.movie_urls_ogg = buff
+
+      # movie_urls_mp4
+      buff = []
+      params['movie_urls_mp4'].each do |k, v|
+        buff[k.to_i] = v
+      end
+      @post.movie_urls_mp4 = buff
+
       #if @post.update(params['post'])
       if @post.save
         flash[:notice] = t.post_was_successfully_updated

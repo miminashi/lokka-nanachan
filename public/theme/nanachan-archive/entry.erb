@@ -10,9 +10,9 @@
     <div id="wrapcontents">
       <div id="wrapleft-photo">
         <ul>
-          <% @entry.image_urls.each do |i| %>
-            <% if i != '' %>
-              <li><a href="http://www.flickr.com/photos/58355766@N05/5361001156/lightbox/" target="_blank"><img src="<%= i %>" /></a></li>
+          <% for i in 0...@entry.image_urls.size %>
+            <% if @entry.image_urls[i] != '' %>
+              <li><a href="<%= @entry.image_links[i] %>" target="_blank"><img src="<%= @entry.image_urls[i] %>" /></a></li>
             <% end %>
           <% end %>
         </ul>
@@ -21,11 +21,17 @@
         </div>
 
         <% if @entry.movie_type == 'url' %>
-          <video style="width:420px; height:296px; background-color:#000000" preload="auto" controls>
-          <source src="<%= @entry.movie_url_webm %>" type="video/webm">
-          <source src="<%= @entry.movie_url_ogg %>" type="video/ogg">
-          <source src="<%= @entry.movie_url_mp4 %>" type="video/mp4">
-          </video>
+          <%for i in 0...@entry.movie_urls_webm.size %>
+            <% if @entry.movie_urls_webm[i] != '' %>
+              <div style="margin-bottom: 20px;">
+                <video style="width:420px; height:296px; background-color:#000000" preload="auto" controls>
+                <source src="<%= @entry.movie_urls_webm[i] %>" type="video/webm">
+                <source src="<%= @entry.movie_urls_ogg[i] %>" type="video/ogg">
+                <source src="<%= @entry.movie_urls_mp4[i] %>" type="video/mp4">
+                </video>
+              </div>
+            <% end %>
+          <% end %>
         <% elsif @entry.movie_type == 'snippet' %>
           <%= @entry.movie_snippet %>
         <% end %>

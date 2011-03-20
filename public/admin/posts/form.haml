@@ -23,42 +23,33 @@
 .field
   %label{:for => 'post_image_urls'}= t.post.image_urls
   %ol
-    %li
-      %input{:type => 'text', :id => 'post_image_url_00', :name => 'image_urls[0]', :value => @post.image_urls[0] ? @post.image_urls[0] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_01', :name => 'image_urls[1]', :value => @post.image_urls[1] ? @post.image_urls[1] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_02', :name => 'image_urls[2]', :value => @post.image_urls[2] ? @post.image_urls[2] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_03', :name => 'image_urls[3]', :value => @post.image_urls[3] ? @post.image_urls[3] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_04', :name => 'image_urls[4]', :value => @post.image_urls[4] ? @post.image_urls[4] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_05', :name => 'image_urls[5]', :value => @post.image_urls[5] ? @post.image_urls[5] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_06', :name => 'image_urls[6]', :value => @post.image_urls[6] ? @post.image_urls[6] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_07', :name => 'image_urls[7]', :value => @post.image_urls[7] ? @post.image_urls[7] : ''}
-    %li
-      %input{:type => 'text', :id => 'post_image_url_08', :name => 'image_urls[8]', :value => @post.image_urls[8] ? @post.image_urls[8] : ''}        
+    - (0..8).each do |i|
+      %li
+        %span
+          = t.post.image_url
+          %input{:type => 'text', :id => "post_image_url_#{i}", :name => "image_urls[#{i}]", :value => @post.image_urls[i] ? @post.image_urls[i] : ''}
+          = t.post.image_link
+          %input{:type => 'text', :id => "post_image_link_#{i}", :name => "image_links[#{i}]", :value => @post.image_links[i] ? @post.image_links[i] : ''} 
 .field
   %label{:for => 'post_movie_type'}= t.post.movie_type
+  %br
+  = t.post.movie_type_description
   %br
   %select{:id => 'post_movie_type', :name => 'post[movie_type]'}
     %option{:value => 'url', :selected => (@post.movie_type == 'url')}= t.post.movie_type_url
     %option{:value => 'snippet', :selected => (@post.movie_type == 'snippet')}= t.post.movie_type_snippet
 .field
   %label{:for => 'post_movie_url'}= t.post.movie_url
-  %ul
-    %li
-      %label{:for => 'post_movie_url_webm'}= t.post.movie_url_webm
-      %input{:type => 'text', :id => 'post_movie_url_webm', :name => 'post[movie_url_webm]', :value => @post.movie_url_webm}
-    %li
-      %label{:for => 'post_movie_url_ogg'}= t.post.movie_url_ogg
-      %input{:type => 'text', :id => 'post_movie_url_ogg', :name => 'post[movie_url_ogg]', :value => @post.movie_url_ogg}
-    %li
-      %label{:for => 'post_movie_url_mp4'}= t.post.movie_url_mp4
-      %input{:type => 'text', :id => 'post_movie_url_mp4', :name => 'post[movie_url_mp4]', :value => @post.movie_url_mp4}
+  %ol
+    - (0..3).each do |i|
+      %li
+        %span
+          = t.post.movie_url_webm
+          %input{:type => 'text', :id => "post_movie_url_#{i}_webm", :name => "movie_urls_webm[#{i}]", :value => @post.movie_urls_webm[i]}
+          = t.post.movie_url_ogg
+          %input{:type => 'text', :id => "post_movie_url_#{i}_ogg", :name => "movie_urls_ogg[#{i}]", :value => @post.movie_urls_ogg[i]}
+          = t.post.movie_url_mp4
+          %input{:type => 'text', :id => "post_movie_url_#{i}_mp4", :name => "movie_urls_mp4[#{i}]", :value => @post.movie_urls_mp4[i]}
 .field
   %label{:for => 'post_movie_snippet'}= t.post.movie_snippet
   %br
