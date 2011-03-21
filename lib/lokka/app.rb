@@ -91,8 +91,10 @@ module Lokka
     get '/admin/posts' do
       model = Post
       model = model.all(:draft => true) if params[:draft] == 'true'
-      @posts = model.all(:order => :created_at.desc).
-                     page(params[:page], :per_page => settings.admin_per_page)
+      #@posts = model.all(:order => :created_at.desc).
+      #               page(params[:page], :per_page => settings.admin_per_page)
+      # is it? https://github.com/visionmedia/dm-pagination/issues#issue/27
+      @posts = model.page(params[:page], :per_page => settings.admin_per_page, :order => [:created_at.desc])
       render_any :'posts/index'
     end
 
@@ -545,8 +547,10 @@ module Lokka
       @theme_types << :index
       @theme_types << :entries
 
+      #@posts = Post.published.
+      #              page(params[:page], :per_page => settings.per_page)
       @posts = Post.published.
-                    page(params[:page], :per_page => settings.per_page)
+                    page(params[:page], :per_page => settings.per_page, :order => [:created_at.desc])
 
       @bread_crumbs = BreadCrumb.new
       @bread_crumbs.add(t.home, '/')
