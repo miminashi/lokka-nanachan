@@ -41,7 +41,8 @@ module Lokka
       set :views => Proc.new { public }
       set :theme => Proc.new { File.join(public, 'theme') }
       set :supported_templates => %w(erb haml slim erubis)
-      set :per_page, 10
+      #set :per_page, 10
+      set :per_page, 20
       set :admin_per_page, 200
       set :default_locale, 'en'
       set :haml, :ugly => false, :attr_wrapper => '"'
