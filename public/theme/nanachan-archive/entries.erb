@@ -8,7 +8,11 @@
       <li class="entries_link" style="width:180px;height:175px; float:left; margin-left:10px">
       <span>
         <a href="<%= post.link %>">
-          <img style="height:120px; width:180px;" src="<%= post.thumbnail_image_url %>" />
+          <% if post.thumbnail_image_url == '' %>
+            <img style="height:120px; width:180px;" src="http://static.nanachan.tv/nanachan/archives/other/nanachanCMS_nowprinting.png" />
+          <% else %>
+            <img style="height:120px; width:180px;" src="<%= post.thumbnail_image_url %>" />
+          <% end %>
           <br />
           <span style="font-size:11px"><%= post.title %></span>
         </a>
