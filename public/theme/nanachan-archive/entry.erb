@@ -9,16 +9,18 @@
 
     <div id="wrapcontents">
       <div id="wrapleft-photo">
-        <ul>
-          <% for i in 0...@entry.image_urls.size %>
-            <% if @entry.image_urls[i] != '' %>
-              <li><a href="<%= @entry.image_links[i] %>" target="_blank"><img src="<%= @entry.image_urls[i] %>" /></a></li>
+        <% if @entry.image_urls.map{|ele| ele != '' ? ele : nil}.compact.size > 0 %>
+          <% p @entry.image_urls.size %>
+          <ul>
+            <% for i in 0...@entry.image_urls.size %>
+              <% if @entry.image_urls[i] != '' %>
+                <li><a href="<%= @entry.image_links[i] %>" target="_blank"><img src="<%= @entry.image_urls[i] %>" /></a></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
+          </ul>
 
-        <div class="clear"><br />
-        </div>
+          <div class="clear"><br /></div>
+        <% end %>
 
         <% if @entry.movie_type == 'url' %>
           <%for i in 0...@entry.movie_urls_webm.size %>
