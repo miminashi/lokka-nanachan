@@ -57,10 +57,16 @@
   </div>
   <div class="clear"></div>
   
-  <div class="footer">
-	  
+  <div class="footer" style="margin-top: 20px;">
+    <!-- ツィートボタン -->
+    <%= tweet_button %>
+
+    <!-- いいね！ボタン -->
+    <%= facebook_like_button %>
+
 	  <!-- 上へ戻る -->
-	  <script src="http://nanachan.tv/js/totop.js"></script>
+    <script src="http://nanachan.tv/js/totop.js"></script>
+
 	  <!-- 編集 -->
     <% if logged_in? %>
     <div style="font-size:10px;"><a href="<%= @entry.edit_link %>"><%= t.edit %></a></div>
