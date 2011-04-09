@@ -1,0 +1,9 @@
+%h2= t.nanachan_header_area
+%ul
+  %li HTMLのわかる人以外ここの設定を変更しないでください
+  %li ERBの埋込みができます
+  %li Lokkaテーマで利用出来る変数（monthsなど）は同様に利用できます
+%form{:action => '/admin/plugins/nanachan_header_area', :method => 'post'}
+  %label{:for => 'nanachan_header_area_inner_html'}
+  %textarea{:id => 'nanachan_header_area_inner_html', :name => 'nanachan_header_area_inner_html'}= Option.nanachan_header_area_inner_html
+  %input{:type => 'submit', :value => t.edit}

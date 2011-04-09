@@ -58,32 +58,7 @@
         <div id="pankuzu"><a href="http://nanachan.tv/index.html">トップ</a> > アーカイヴ</div>
 		
         <div id="wrapcontents">
-          <!-- pankuzu <div id="bread_crumb"><%= bread_crumb %></div> -->
-          <table width="900">
-            <tr>
-              <td valign="top" id="tdpickup">
-                <div id="wrappickup">
-                  <h3 id="pickup" class="rmv-t">ピックアップ</h3>
-                  <div id="archives">
-                    <div id="backmovies">
-                      <li><a href="http://nanachan.tv/movies/bartimeline.html"><img src="http://farm2.static.flickr.com/1189/5139629918_fde0b269fc_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">BAR☆Time Line</span></a></li>
-                      <li><a href="http://nanachan.tv/movies/gallery.html"><img src="http://farm5.static.flickr.com/4062/5139021113_c139fec325_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">なないろチャンネル開局記念展<br />「劇的!!インストール」</span></a></li>
-                      <li><a href="http://nanachan.tv/movies/akiben.html"><img src="http://farm2.static.flickr.com/1226/5149283473_eb29ecd7ab_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">秋葉原弁当男子SP!!!</span></a></li>
-                      <li><a href="http://nanachan.tv/movies/untilgallery.html"><img src="http://farm5.static.flickr.com/4001/5139624046_408ebced2e_m.jpg" style="width:180px; height:120px; margin-right:10px; overflow:hidden;" /><br /><span class="arrow-right">展覧会ができるまでチャンネル</span></a></li>
-                      <div class="clear"></div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td width="25"></td>
-              <td valign="top" width="80">
-                <h3 id="monthly" class="rmv-t">月別</h3>
-                <% months.each do |month| %>
-                  <li><a href="/<%= month.year %>/<%= month.month %>/"><%= month.year %>/<%= month.month %></a></li>
-                <% end %>
-              </td>
-            </tr>
-          </table>
+          <%= nanachan_header_area %>
 
           <h3 id="newest" class="rmv-t">新着記事</h3>
           <div id="main">
